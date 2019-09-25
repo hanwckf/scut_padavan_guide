@@ -170,7 +170,7 @@ scut_padavan最新的源代码在以下两个仓库里分发：
 
 <div STYLE="page-break-after: always;"></div>
 
-16. 按下图配置2.4GHz/5GHz WiFi的SSID和密码，**对于大多数设备，建议使用5GHz WiFi**
+16. 按下图配置2.4GHz/5GHz WiFi的SSID和密码，密码最短要有8位，**对于大多数设备，建议使用5GHz WiFi**
 
 ![](img/5g.png)
 
