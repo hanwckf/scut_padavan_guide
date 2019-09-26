@@ -319,6 +319,8 @@ IPv6注意事项
 - 插件的使用说明请参考以下链接：
   - [https://www.jianshu.com/p/cb51fb0fb2ac](https://www.jianshu.com/p/cb51fb0fb2ac)
 
+Padavan不能像OpenWrt一样随意安装软件，除非在可写的外置存储安装Entware环境(需要外挂U盘或SD卡)。除此之外所有的内置插件都是与固件一起编译出来的，想要增加额外的功能必须修改源码并重新编译。
+
 ## 如何在其它网络环境下使用本固件
 
 *其它网络环境指的是别的学校的校园网，或者自己家里，实验室等不需要进行scutclient认证的网络环境*
