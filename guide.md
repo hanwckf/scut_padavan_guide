@@ -4,6 +4,8 @@
 
 *本文档的部分内容仅保证在最后更新日期时有效*
 
+*本文档的最新版本可在[这里](https://github.com/hanwckf/scut_padavan_guide/blob/master/guide.md)和[这里](https://gitee.com/hanwckf/scut_padavan_guide/blob/master/guide.md)获得*
+
 ***
 本作品采用[知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-sa/4.0/)进行许可。
 
