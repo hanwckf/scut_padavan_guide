@@ -60,7 +60,7 @@ scut_padavan最新的源代码在以下两个仓库里分发：
 - [https://github.com/hanwckf/rt-n56u](https://github.com/hanwckf/rt-n56u)
 - [https://gitee.com/hanwckf/rt-n56u](https://gitee.com/hanwckf/rt-n56u)
 
-固件里使用的scutclient为原项目的一个Fork，其源码可以在以下仓库里找到：
+scut_padavan集成的scutclient为原项目的一个Fork，其源码可以在以下仓库里找到：
 
 - [https://github.com/hanwckf/scutclient](https://github.com/hanwckf/scutclient)
 
@@ -473,6 +473,8 @@ scut_padavan默认开启ssh并关闭telnet，默认的用户名和密码都是`a
 
 使用ath10k开源驱动，路由器最好要有128M或以上的RAM；如果使用闭源的qcawifi驱动，则64M内存一般足够(如斐讯K2T等64M内存的路由器)。
 
+关于在OpenWrt使用scutclient进行校园网认证，请看[此处](https://github.com/scutclient/scutclient)，你也可以加入[华工路由器群](https://github.com/scutclient/scutclient#contact-us)了解更多信息，**OpenWrt不在本文档的支持范围之内。**
+
 截至最后更新日期，推荐的高通方案路由器有：
 - SBR-AC1750 (QCA9558+QCA9880)
 - 华硕AC58U (IPQ401x)
@@ -482,6 +484,8 @@ scut_padavan默认开启ssh并关闭telnet，默认的用户名和密码都是`a
 - 360 C301 (AR9344+QCA9882)
 
 想要使用Padavan固件，只能选择MT7620/7621/7628的路由器，并且无线芯片必须是MT7610/7612/7603/7615之一，否则没有无线驱动支持。
+
+scut_padavan在源码中集成了scutclient，并且在[Releases](https://github.com/hanwckf/rt-n56u/releases)中发布的大部分机型已将scutclient编译进去，绝大多数SCUT的同学可免于折腾直接使用。
 
 **不推荐购买过时的单7620/7628的单频路由器(如极路由1S等)，至少应选择支持5GHz WiFi的路由。**
 
@@ -495,23 +499,19 @@ scut_padavan默认开启ssh并关闭telnet，默认的用户名和密码都是`a
 
 MTK系列的路由器还可以刷同样采用私有无线驱动的PandoraBox(PanguBox)或高恪固件，这两个固件都不开放源代码，但是PandoraBox提供SDK，可以自己构建ipk包（前提是你没碰到它的bug）。同时PandoraBox还支持ar71xx/ipq401x/ipq806x等高通方案的路由器，里面用的是闭源的qcawifi无线驱动。
 
-MT7620/MT7628片内集成百兆交换机、单核580MHz MIPS 24kc处理器和2x2 2.4GHz WiFi模块，两者的区别在于MT7628去掉了MT7620的HWNAT，但增强了2.4GHz WiFi的抗干扰能力。
-
-MT7621片内集成千兆交换机以及双核四线程的880MHz MIPS 1004kc处理器，没有无线模块，因此MT7621方案的路由器需要外挂一个2.4GHz的无线芯片，一般会选用MT7603，有些高端产品会选用MT7615。显然MT7621的处理器远强于MT7620/7628，如果你在宿舍需要挂pt的话，推荐选择MT7621，或者考虑下面的软路由方案。
-
+MT7620/MT7628片内集成百兆交换机、单核580MHz MIPS 24kc处理器和2x2 2.4GHz WiFi模块，两者的区别在于MT7628去掉了MT7620的HWNAT，但增强了2.4GHz WiFi的抗干扰能力。  
+MT7621片内集成千兆交换机以及双核四线程的880MHz MIPS 1004kc处理器，没有无线模块，因此MT7621方案的路由器需要外挂一个2.4GHz的无线芯片，一般会选用MT7603，有些高端产品会选用MT7615。显然MT7621的处理器远强于MT7620/7628，如果你在宿舍需要挂pt的话，推荐选择MT7621，或者考虑下面的软路由方案。  
 MT7615是MTK新一代的无线芯片，性能远超MT7612和MT7603，价格也贵一些。
 
 MTK的无线方案在原版OpenWrt下采用mt76开源无线驱动，其性能和稳定性都弱于原厂私有驱动，当然随着代码的不断完善，相信mt76开源驱动的bug会越来越少。
 
 Marvell方案的路由器比较冷门且价格较高，但是对OpenWrt支持良好，例如思科WRT1900ACS系列。
 
-如果你有一块SBC（树莓派及其它各种国产pi）或ARM/ARM64盒子（斐讯N1,贝壳云,猫盘等等,常见的方案有s905/s912,RK3328/RK3368等等），可以用它作为OpenWrt软路由，再搭配一个MT7620/MT7621路由器做为VLAN交换机，此部分的参考资料会尽快更新上来。
-
+如果你有一块SBC（树莓派及其它各种国产pi）或ARM/ARM64盒子（斐讯N1,贝壳云,猫盘等等,常见的方案有s905/s912,RK3328/RK3368等等），可以用它作为OpenWrt软路由，再搭配一个MT7620/MT7621路由器做为VLAN交换机，此部分的参考资料会尽快更新上来。  
 ![](img/vlan.png)
 
-不推荐任何螃蟹方案的路由，因为几乎没有开源支持。
-
-**至于垃圾bcm以及垃圾bcm专属的梅林固件：**
+不推荐任何螃蟹方案的路由，因为几乎没有开源支持。  
+**至于垃圾bcm：**
 
 ![bcm](img/bcm.png)
 
