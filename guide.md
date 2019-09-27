@@ -456,7 +456,7 @@ scut_padavan默认开启ssh并关闭telnet，默认的用户名和密码都是`a
 
 ![](img/terminal.png)
 
-极路由E30的scut_padavan串口波特率为`115200`，TTL焊盘位于FLASH的右上方，拆开机器后容易看到。
+极路由E30的scut_padavan串口波特率为`57600`，TTL焊盘位于FLASH的右上方，拆开机器后容易看到。
 
 **注意：Padavan固件是完全只读的，可写目录除了 `/etc/storage/` 以外全部都是tmpfs，掉电后会丢失所有内容，如果需要在路由器里存放数据，必须保存在 `/etc/storage/` 目录，而且保存后必须执行 `mtd_storage.sh save` 才能将修改写入到FLASH中！**
 
