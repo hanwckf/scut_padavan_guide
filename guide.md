@@ -26,6 +26,8 @@
   - 见[第2节](#快速配置指南)末尾
 - 如何查看scutclient的日志？
   - 见[第3节](#简单故障排查)的内容
+- 如何重启路由器？
+  - 拔掉电源再插回去，或在管理界面点重启按钮。切勿长按RESET键，这样是恢复出厂设置。
 - 如何进入breed？
   - 电脑有线网卡配置成自动获取IP地址，然后连到路由器的任意网口，路由器先按住RESET按键后再上电，等待10秒后松开RESET键，然后在电脑浏览器里访问 `192.168.1.1`
 
@@ -50,7 +52,7 @@
 
 ## 介绍
 
-本文档使用的scut_padavan为完全开源的路由器固件，**与OpenWrt没有任何关系**，是来自俄罗斯的Padavan项目的一个Fork，民间俗称老毛子，仅适用于MT7620/7621/7628平台的路由器。
+本文档使用的scut_padavan为完全开源的路由器固件，**与OpenWrt没有任何关系**，是来自俄罗斯的[Padavan](https://bitbucket.org/padavan/rt-n56u)项目的一个Fork，民间俗称老毛子，仅适用于MT7620/7621/7628平台的路由器。
 
 由于MTK系列的无线方案在开源mt76驱动下的性能和稳定性不及原厂驱动，因此很多MTK路由器玩家会选择PandoraBox(PanguBox),高恪或Padavan等使用MTK私有无线驱动的固件。
 
@@ -62,7 +64,7 @@ scut_padavan最新的源代码在以下两个仓库里分发：
 - [https://github.com/hanwckf/rt-n56u](https://github.com/hanwckf/rt-n56u)
 - [https://gitee.com/hanwckf/rt-n56u](https://gitee.com/hanwckf/rt-n56u)
 
-scut_padavan集成的scutclient为原项目的一个Fork，其源码可以在以下仓库里找到：
+scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scutclient)的一个Fork，其源码可以在以下仓库里找到：
 
 - [https://github.com/hanwckf/scutclient](https://github.com/hanwckf/scutclient)
 
@@ -102,7 +104,7 @@ scut_padavan集成的scutclient为原项目的一个Fork，其源码可以在以
 
 2. 将路由器接好电源，通电
 
-3. **如果你拿到的路由器是别人用过的，请通电两分钟后长按RESET键（对于极路由E30，RESET键在机器的底面）直到路由器自动重启，这样做的目的是恢复出厂设置**
+3. **如果你拿到的路由器是别人用过的，请通电两分钟后长按RESET键（对于极路由E30，RESET键在机器的底面）直到路由器自动重启，这样做的目的是恢复出厂设置。如果你的机器没有RESET键或者固件未适配，请看[这里](#如何将路由器恢复出厂设置)的方法2或方法3恢复出厂设置。**
 
 4. 将墙壁上的网线插孔与路由器的WAN口(对于极路由E30，就是那个**蓝色**的网口)连接起来，切勿插错网口！
 
