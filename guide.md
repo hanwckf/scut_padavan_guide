@@ -308,9 +308,7 @@ SCUT校园网的IPv6采用SLAAC无状态协议自动配置，前缀长度是64�
 
 IPv6注意事项
   1. 对于使用IPv6的PT用户，请务必使用https tracker服务器，否则本科生夜间断网后无法连接tracker服务器
-
       ![](img/npupt.png)
-
   2. NAT6后的内网无法使用transmission，而utorrent, qbittorrent和deluge等客户端可以正常工作
   3. 目前SCUT的校内IPv6不允许外部传入连接，因此无法从学校外部的IPv6网络连入学校内的IPv6设备
 
@@ -485,7 +483,7 @@ scut_padavan默认开启ssh并关闭telnet，默认的用户名和密码都是`a
 - 华硕AC58U (IPQ401x)
 - 华硕ACRH17 (IPQ401x+QCA9984)
 - ~~DW33D~~ (QCA9558+QCA9880，硬件设计缺陷，随时有变砖风险，详情请看[此处](https://www.right.com.cn/forum/thread-361850-1-1.html))
-- 斐讯K2T (QCA9563+QCA9886，只有64M内存，最好不要用ath10k驱动的OpenWrt，或硬改到128M)
+- 斐讯K2T (QCA9563+QCA9886，只有64M内存，最好硬改到128M)
 - 360 C301 (AR9344+QCA9882)
 
 想要使用Padavan固件，只能选择MT7620/7621/7628的路由器，并且无线芯片必须是MT7610/7612/7603/7615之一，否则没有无线驱动支持。
@@ -500,7 +498,7 @@ scut_padavan在源码中集成了scutclient，并且在[Releases](https://github
 - 斐讯K2P (MT7621+MT7615D，**一代神器**，已经炒到200元，以前只要100元)
 - NEWIFI3/歌华链 (MT7621+MT7603+MT7612，WiFi可能很差，存世量大，玩家多，不折腾的同学别买)
 - 斐讯K2 (MT7620+MT7612，上代神器)
-- 极路由E30 (HC5861B) (MT7628+MT7612，可能只有TTL方法才能刷入breed)
+- 极路由E30 (HC5861B) (MT7628+MT7612，可能只有通过TTL才能刷入breed)
 
 MTK系列的路由器还可以刷同样采用私有无线驱动的PandoraBox (PanguBox)或高恪固件，这两个固件都不开放源代码，但是PandoraBox提供SDK，可以自己构建ipk包（前提是你没碰到它的bug）。同时PandoraBox还支持ar71xx/ipq401x/ipq806x等高通方案的路由器，里面用的是闭源的qcawifi无线驱动。
 
