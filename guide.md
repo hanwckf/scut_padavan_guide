@@ -15,7 +15,7 @@
 - 本固件的WiFi的默认名称和密码是？
   - 对于极路由E30/HC5861B/Enjoy1200
     - 默认SSID：`HC5861B_XXXX`和`HC5861B_5G_XXXX`，默认密码都是`1234567890`
-  - 其它机器的默认SSID格式`<机器型号>_<MAC后4位>`以及`<机器型号>_5G_<MAC后4位>`，默认密码都是`1234567890`
+  - 其它机器的默认SSID为：`<机器型号>_<MAC后4位>`以及`<机器型号>_5G_<MAC后4位>`，默认密码都是`1234567890`
 - 如何进入本固件的管理界面（默认配置下）？
   - 用有线或无线方式连入路由器并配置成自动获取IP地址，用浏览器访问：`192.168.2.1` ，也可以使用域名 `http://my.router`
 - 本固件的管理界面的默认登录账号密码是？
@@ -27,9 +27,9 @@
 - 如何查看scutclient的日志？
   - 见[第3节](#简单故障排查)的内容
 - 如何重启路由器？
-  - 拔掉电源再插回去，或在管理界面点重启按钮。切勿长按RESET键，这样是恢复出厂设置。
+  - 拔掉电源再插回去，或在管理界面点重启按钮。**切勿长按RESET键，这样很可能会恢复出厂设置！**
 - 如何进入breed？
-  - 电脑有线网卡配置成自动获取IP地址，然后连到路由器的任一LAN口，路由器先按住RESET按键后再上电，等待10秒后松开RESET键，然后在电脑浏览器里访问 `192.168.1.1` ，注意breed的IP地址与本固件的默认IP地址(`192.168.2.1`)不同。对于没有RESET键或者breed未适配的机型，请使用BreedEnter工具进入Breed
+  - 电脑有线网卡配置成自动获取IP地址，然后连到路由器的任一LAN口，路由器按住RESET键后再上电，等待10秒后松开RESET键，然后在电脑浏览器里访问 `192.168.1.1` ，注意breed的IP地址与本固件的默认IP地址(`192.168.2.1`)不同。对于没有RESET键或者breed未适配的机型，请使用BreedEnter工具进入Breed
 
 <div STYLE="page-break-after: always;"></div>
 
@@ -77,7 +77,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 - FLASH: 16M
 - 5GHz WiFi: MT7612E (iPA+iLNA)
 
-截至最后更新日期，此款已经停产的路由器可以在二手市场以较低的价格(40-70元不等)购买到，是同价位中支持5GHz WiFi最便宜的路由器之一，其它同类机器有小米路由Mini和斐讯K2(40-80元不等)等，也是支持5GHz WiFi的低价路由器。你也可以选择scut_padavan项目支持的其它路由器，如DIR-882, K2P等MT7615+MT7621方案的路由器(200元以上,性能强大)，或者是NEWIFI3等MT7621矿渣路由器(千兆,100元全新,WiFi信号可能很差)，只要刷入scut_padavan即可按本文档的后续内容配置。scut_padavan支持的机型可在[此处](https://github.com/hanwckf/rt-n56u/blob/master/README.md)看到。
+截至最后更新日期，此款已经停产的路由器可以在二手市场以较低的价格（40-70元）购买到，是同价位中支持5GHz WiFi最便宜的路由器之一，其它同类机器有小米路由Mini和斐讯K2等（40-80元），也是支持5GHz WiFi的低价路由器。你也可以选择scut_padavan项目支持的其它路由器，如DIR-882、K2P等MT7615+MT7621的路由器（200元以上，性能强大），或者是NEWIFI3等MT7621矿渣路由器（100元全新，WiFi信号可能很差），只要刷入scut_padavan即可按本文档的后续内容配置。scut_padavan支持的机型可在[此处](https://github.com/hanwckf/rt-n56u/blob/master/README.md)看到。
 
 **新手注意：千万不要购买没有刷好breed的路由器！因为大部分路由器从原厂固件刷入breed操作繁琐，新手操作很可能会导致路由器变砖，必须让卖家帮忙刷好breed才可购买，然后再按照本文档说明进行[刷机](#如何重刷或者刷入其它固件)配置，或者可以一步到位让热心的卖家帮忙刷好scut_padavan，只需将对应机器的固件发给卖家即可，想要获取最新固件请看[这里](#如何获取固件更新)的内容。**
 
@@ -168,19 +168,21 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 
 ![](img/scut.png)
 
-15. 查看scutclient中的日志，没有出现ERROR之类的输出说明认证成功，此时电脑应该可以正常上网了。如果认证失败，请详细检查第13-14步中填写的数值是否有误。
+15. 查看scutclient中的日志，没有出现ERROR之类的输出说明认证成功，此时电脑应该可以正常上网了。如果认证失败，请详细检查第13-14步中填写的数值是否有误
 
 ![](img/success.png)
 
 <div STYLE="page-break-after: always;"></div>
 
-16. 按下图配置2.4GHz/5GHz WiFi的SSID和密码，密码最短要有8位，**对于大多数设备，建议使用5GHz WiFi**
+16. 按下图配置2.4GHz/5GHz WiFi的SSID和密码，密码最短要有8位  
+**对于大多数设备，强烈建议使用5GHz WiFi**
 
 ![](img/5g.png)
 
 ![](img/2.4g.png)
 
-17. 快速配置完成，请在管理界面重启路由器。一切正常的话，你就可以卸载掉学校官方的上网客户端了。
+17. 快速配置完成，请在按下图所示在路由器管理界面中执行重启命令：  
+一切正常的话，你就可以卸载掉学校官方的上网客户端了
 
 ![](img/reboot.png)
 
@@ -236,7 +238,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 
 *此部分内容仅保证在最后更新日期前有效*
 
-SCUT是最早支持IPv6网络的高校之一。目前，所有宿舍的有线网络，大部分实验室以及创新创业基地，教职工宿舍，家属楼等地均部署有IPv6网络，而所有的校园WiFi热点(scut-student等)都没有IPv6
+SCUT是最早支持IPv6网络的高校之一。目前，所有宿舍的有线网络，大部分实验室以及创新创业基地，教职工宿舍等地均部署有IPv6，而所有的校园WiFi热点(scut-student等)都没有IPv6
 
 SCUT的IPv6理论上不断网且不限速，相当于免费资源，但没有经过Drcom认证的端口，也就是没有登录校园网账号的网络，其IPv6不能连接外网80端口，也就是说在不开网或者夜间断网的情况下你只能访问非80端口的IPv6资源。
 
@@ -363,7 +365,7 @@ scut_padavan还内置了支持https的curl，可以进行portal认证。
     
     ![](img/breed.png)
    
-   - 对于pb-boot，直接选择固件上传即可：
+   - 对于pb-boot，直接选择固件上传刷入即可：
     
     ![](img/pb-boot.png)
 
@@ -381,7 +383,7 @@ scut_padavan还内置了支持https的curl，可以进行portal认证。
     #例如：mtd_write -r write /tmp/HC5861B.trx Firmware_Stub
     ```
 
-**注意：由于Padavan固件的配置保存在单独的分区，所以一般情况下刷机后所有配置都保持不变，如果需要清空配置，需要单独执行恢复出厂设置的操作**
+**注意：由于Padavan固件的配置保存在单独的分区，所以一般情况下刷机后所有配置都保持不变，如果需要清空配置，需要单独执行[恢复出厂设置](#如何将路由器恢复出厂设置)的操作**
 
 <div STYLE="page-break-after: always;"></div>
 
@@ -391,7 +393,7 @@ scut_padavan固件完全开源，有以下三种方式获取固件：
   
 - 从[Github Releases](https://github.com/hanwckf/rt-n56u/releases)下载不定期发布的固件
 - 从[此链接](https://www.jianshu.com/p/d76a63a12eae)获得不定期更新的固件和更新日志，此处的更新频率高于Github Releases
-- 从源码构建最新固件，请参考[README.md](https://github.com/hanwckf/rt-n56u/blob/master/README.md#编译说明)的编译说明
+- 从源代码构建最新固件，请参考[README.md](https://github.com/hanwckf/rt-n56u/blob/master/README.md#编译说明)的编译说明
 
 <div STYLE="page-break-after: always;"></div>
 
@@ -454,7 +456,7 @@ scut_padavan默认开启ssh并关闭telnet，默认的用户名和密码都是`a
 
 ![](img/terminal.png)
 
-极路由E30的scut_padavan串口波特率为`57600`，TTL焊盘位于FLASH的右上方，拆开机器后容易看到。
+极路由E30的scut_padavan串口波特率为`57600`，TTL焊盘位于FLASH的右上方，拆开机器即可看到。
 
 **注意：Padavan固件是完全只读的，可写目录除了 `/etc/storage/` 以外全部都是tmpfs，掉电后会丢失所有内容，如果需要在路由器里存放数据，必须保存在 `/etc/storage/` 目录，而且保存后必须执行 `mtd_storage.sh save` 才能将修改写入到FLASH中！**
 
@@ -462,7 +464,8 @@ scut_padavan默认开启ssh并关闭telnet，默认的用户名和密码都是`a
 
 ## 如何选择其它路由器
 
-*此部分内容仅保证在最后更新日期前有参考价值；路由器推荐的考虑因素包括硬件规格、第三方固件的支持度以及刷机救砖的难易度*
+*此部分内容仅保证在最后更新日期前有参考价值*  
+*路由器推荐的考虑因素包括硬件规格、第三方固件的支持度以及刷机救砖的难易度*
 
 **新手注意：千万不要购买没有刷好breed的路由器！因为大部分路由器从原厂固件刷入breed操作繁琐，新手操作很可能会导致路由器变砖，必须让卖家帮忙刷好breed才可购买！**
 
@@ -480,7 +483,7 @@ scut_padavan默认开启ssh并关闭telnet，默认的用户名和密码都是`a
 - SBR-AC1750 (QCA9558+QCA9880)
 - 华硕AC58U (IPQ401x)
 - 华硕ACRH17 (IPQ401x+QCA9984)
-- DW33D (QCA9558+QCA9880，硬件设计缺陷，随时有变砖风险，详情请看[此处](https://www.right.com.cn/forum/thread-361850-1-1.html))
+- ~~DW33D~~ (QCA9558+QCA9880，硬件设计缺陷，随时有变砖风险，详情请看[此处](https://www.right.com.cn/forum/thread-361850-1-1.html))
 - 斐讯K2T (QCA9563+QCA9886，只有64M内存，最好不要用ath10k驱动的OpenWrt，或硬改到128M)
 - 360 C301 (AR9344+QCA9882)
 
@@ -494,11 +497,11 @@ scut_padavan在源码中集成了scutclient，并且在[Releases](https://github
 - DIR-882 (MT7621+MT7615+MT7615)
 - DIR-878 (MT7621+MT7615+MT7615，与DIR-882几乎一样)
 - 斐讯K2P (MT7621+MT7615D，**一代神器**，已经炒到200元，以前只要100元)
-- NEWIFI3 (MT7621+MT7603+MT7612，WiFi可能很差，存世量大，玩家多，但不折腾的同学不要选择)
+- NEWIFI3/歌华链 (MT7621+MT7603+MT7612，WiFi可能很差，存世量大，玩家多，不折腾的同学别买)
 - 斐讯K2 (MT7620+MT7612，上代神器)
-- 极路由E30/HC5861B (MT7628+MT7612)
+- 极路由E30 (HC5861B) (MT7628+MT7612，可能只有TTL方法才能刷入breed)
 
-MTK系列的路由器还可以刷同样采用私有无线驱动的PandoraBox(PanguBox)或高恪固件，这两个固件都不开放源代码，但是PandoraBox提供SDK，可以自己构建ipk包（前提是你没碰到它的bug）。同时PandoraBox还支持ar71xx/ipq401x/ipq806x等高通方案的路由器，里面用的是闭源的qcawifi无线驱动。
+MTK系列的路由器还可以刷同样采用私有无线驱动的PandoraBox (PanguBox)或高恪固件，这两个固件都不开放源代码，但是PandoraBox提供SDK，可以自己构建ipk包（前提是你没碰到它的bug）。同时PandoraBox还支持ar71xx/ipq401x/ipq806x等高通方案的路由器，里面用的是闭源的qcawifi无线驱动。
 
 MT7620/MT7628片内集成百兆交换机、单核580MHz MIPS 24kc处理器和2x2 2.4GHz WiFi模块，两者的区别在于MT7628去掉了MT7620的HWNAT，但增强了2.4GHz WiFi的抗干扰能力。  
 MT7621片内集成千兆交换机以及双核四线程的880MHz MIPS 1004kc处理器，没有无线模块，因此MT7621方案的路由器需要外挂一个2.4GHz的无线芯片，一般会选用MT7603，有些高端产品会选用MT7615。显然MT7621的处理器远强于MT7620/7628，如果你在宿舍需要挂pt的话，推荐选择MT7621，或者考虑下面的软路由方案。  
