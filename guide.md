@@ -493,11 +493,11 @@ scut_padavan在源码中集成了scutclient，并且在[Releases](https://github
 **不推荐购买过时的单7620/7628的单频路由器（如极路由1S等），至少应选择支持5GHz WiFi的路由。**
 
 截至最后更新日期，推荐的MTK方案路由器有：
-- DIR-882 (MT7621+MT7615+MT7615)
-- DIR-878 (MT7621+MT7615+MT7615，与DIR-882几乎一样)
+- DIR-882/DIR-878 (MT7621+MT7615+MT7615)
 - 斐讯K2P (MT7621+MT7615D，**一代神器**，已经炒到200元，以前只要100元)
 - NEWIFI3/歌华链 (MT7621+MT7603+MT7612，WiFi可能很差，存世量大，玩家多，不折腾的同学别买)
 - 斐讯K2 (MT7620+MT7612，上代神器)
+- 360 P2 (MT7628+MT7612)
 - 极路由E30 (HC5861B) (MT7628+MT7612，可能只有通过TTL才能刷入breed)
 
 MTK系列的路由器还可以刷同样采用私有无线驱动的PandoraBox (PanguBox)或高恪固件，这两个固件都不开放源代码，但是PandoraBox提供SDK，可以自己构建ipk包（前提是你没碰到它的bug）。同时PandoraBox还支持ar71xx/ipq401x/ipq806x等高通方案的路由器，里面用的是闭源的qcawifi无线驱动。
