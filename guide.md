@@ -115,19 +115,19 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
    - **如果你只有Mac OS X或手机，可以使用WiFi连接路由器，然后跳到第12步**   
    - **新手注意：如果电脑以前是直连有线校园网的话必须经过第6-9步的操作才能使用路由器有线上网（因为直连校园网需要将电脑的有线网卡配置为静态地址，而路由器要求电脑有线网卡配置为自动获取地址），除非你的电脑只用路由器的WiFi（因为WiFi默认就是自动获取地址，一般无需配置）**
 
-6. 按下`Win+R`，输入`control`，确定，打开控制面板
+6. 按下`Win+R`（Windows徽标键与R键），打开`运行`，输入`control`，确定，打开控制面板
 
-![](img/run.png)
+    ![](img/run.png)
 
 <div STYLE="page-break-after: always;"></div>
 
 7. 在控制面板中，切换查看方式为`类别`，然后点击`查看网络状态和任务`
     
-![](img/panel.1.png)
+    ![](img/panel.1.png)
 
 8. 点击`更改适配器设置`
     
-![](img/panel.2.png)
+    ![](img/panel.2.png)
 
 <div STYLE="page-break-after: always;"></div>
 
@@ -144,48 +144,49 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 <div STYLE="page-break-after: always;"></div>
 
 10. 查看有线或无线网卡的状态信息，确保电脑已经获取到了192.168.2.X的IP地址。找到你的有线网卡或无线网卡并双击它。一般情况下有线网卡的名字是`以太网`，无线网卡的名字是`WLAN`
-    
-![](img/adapter.png)
+
+    ![](img/adapter.png)
 
 11. 点击`详细信息`，检查IP地址是否为192.168.2.X，下图为有线网卡的示例，无线网卡同理
-    
-![](img/ipstatus.png)
+
+    ![](img/ipstatus.png)
 
 <div STYLE="page-break-after: always;"></div>
 
-12. 打开浏览器，在地址栏输入`192.168.2.1`，按回车，弹出认证界面，输入用户名`admin`和默认密码`admin`登入管理界面。（手机和Mac OS X同理，用各自的浏览器访问`192.168.2.1`）
+12. 打开浏览器，在地址栏输入`192.168.2.1`，按回车，弹出认证界面，输入用户名`admin`和默认密码`admin`登入管理界面。  
+手机与Mac OS X同理，用各自的浏览器访问`192.168.2.1`
 
-![](img/login.png)
+    ![](img/login.png)
 
 <div STYLE="page-break-after: always;"></div>
 
 13. 在管理界面内，首先按照下图配置`外部网络(WAN)`，填入先前记录的`IP地址、子网掩码和网关`，而DNS服务器可以填写跟网上营业厅给的不一样的，可按照图片里的填。至于MAC地址，由于目前不会校验客户端MAC，所以可留空或者填入先前记录好的MAC地址(去掉`:`后填入)。填写完成之后点击**应用设置**，数秒后会自动刷新。如果没有自动刷新，请手动点一下浏览器的刷新键
 
-![](img/WAN.png)
+    ![](img/WAN.png)
 
 <div STYLE="page-break-after: always;"></div>
 
 14. 然后点击左侧菜单下的`scutclient`，按下图配置，填写完成之后点击**应用设置**
 
-![](img/scut.png)
+    ![](img/scut.png)
 
 15. 查看scutclient中的日志，没有出现ERROR之类的输出说明认证成功，此时电脑应该可以正常上网了。如果认证失败，请详细检查第13-14步中填写的数值是否有误
 
-![](img/success.png)
+    ![](img/success.png)
 
 <div STYLE="page-break-after: always;"></div>
 
 16. 按下图配置2.4GHz/5GHz WiFi的SSID和密码，密码最短要有8位  
 **对于大多数设备，强烈建议使用5GHz WiFi**
 
-![](img/5g.png)
+    ![](img/5g.png)
 
-![](img/2.4g.png)
+    ![](img/2.4g.png)
 
 17. 快速配置完成，请在按下图所示在路由器管理界面中执行重启命令：  
 一切正常的话，你就可以卸载掉学校官方的上网客户端了
 
-![](img/reboot.png)
+    ![](img/reboot.png)
 
 <div STYLE="page-break-after: always;"></div>
 
@@ -207,8 +208,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 - 我的设备搜索不到WiFi，但是别人的可以
   - 你的设备不支持5GHz WiFi，搜索不到5GHz的WiFi信号
   - 你的设备不支持路由器当前使用的无线信道，请按下图配置手动信道：
-
-![](img/ch.png)
+    ![](img/ch.png)
 
 - 路由器的有线网络可以正常使用，但WiFi无法使用
   - 首先尝试将路由器硬重启：拔掉电源再插回去
