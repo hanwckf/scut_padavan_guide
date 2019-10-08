@@ -29,8 +29,8 @@
 - 如何重启路由器？
   - 拔掉电源再插回去，或在管理界面点重启按钮。  
     - **切勿长按RESET键！这样很可能会恢复出厂设置！**
-- 如何进入breed？
-  - 电脑有线网卡配置成自动获取IP地址，然后连到路由器的任一LAN口，路由器按住RESET键后再上电，等待10秒后松开RESET键，然后在电脑浏览器里访问 `192.168.1.1` ，注意breed的IP地址与本固件的默认IP地址(`192.168.2.1`)不同。对于没有RESET键或者breed未适配的机型，请使用BreedEnter工具进入Breed
+- 如何进入breed/pb-boot？
+  - 电脑有线网卡配置成自动获取IP地址，然后连到路由器的任一LAN口，路由器按住RESET键后再上电，等待10秒后松开RESET键，然后在电脑浏览器里访问 `192.168.1.1` ，注意breed/pb-boot的IP地址与本固件的默认IP地址(`192.168.2.1`)不同。对于没有RESET键或者breed未适配的机型，请使用BreedEnter工具进入Breed
 
 <div STYLE="page-break-after: always;"></div>
 
