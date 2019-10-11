@@ -80,7 +80,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 - FLASH: 16M
 - 5GHz WiFi: MT7612E (E30: iPA+iLNA; 360P2: ePA+eLNA)
 
-截至最后更新日期，这些路由器可以在二手市场以较低的价格（40-70元）购买到，是同价位中支持5GHz WiFi最便宜的路由器之一，其它同类机器有小米路由Mini和斐讯K2等（40-80元），也是支持5GHz WiFi的低价路由器。你也可以选择scut_padavan项目支持的其它路由器，如DIR-882、K2P等MT7615+MT7621的路由器（200元以上，性能强大），或者是NEWIFI3等MT7621矿渣路由器（100元全新，WiFi信号可能很差），只要刷入scut_padavan即可按本文档的后续内容配置。scut_padavan支持的机型可在[此处](https://github.com/hanwckf/rt-n56u/blob/master/README.md)看到。
+截至最后更新日期，这些路由器可以在二手市场以较低的价格（40-70元）购买到，是支持5GHz WiFi的低价路由器，其它同类机器还有小米路由Mini和斐讯K2等（40-80元）。你也可以选择scut_padavan项目支持的其它路由器，如DIR-882/DIR-878、K2P等MT7615+MT7621的路由器（200元以上，性能强大），或者是NEWIFI3等MT7621矿渣路由器（100元全新，WiFi信号可能很差），只要刷入scut_padavan即可按本文档的后续内容配置。scut_padavan支持的机型可在[此处](https://github.com/hanwckf/rt-n56u/blob/master/README.md)看到。
 
 **新手注意：千万不要购买没有刷好breed的路由器！因为大部分路由器从原厂固件刷入breed操作繁琐，新手操作很可能会导致路由器变砖，必须让卖家帮忙刷好breed才可购买，然后再按照本文档说明进行[刷机](#如何重刷或者刷入其它固件)配置，或者可以一步到位让热心的卖家帮忙刷好scut_padavan，只需将对应机器的固件发给卖家即可，想要获取最新固件请看[这里](#如何获取固件更新)的内容。**
 
