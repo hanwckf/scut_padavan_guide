@@ -156,7 +156,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 <div STYLE="page-break-after: always;"></div>
 
 12. 打开浏览器，在地址栏输入`192.168.2.1`，按回车，弹出认证界面，输入用户名`admin`和默认密码`admin`登入管理界面。  
-手机与Mac OS X同理，用各自的浏览器访问`192.168.2.1`
+手机、平板与Mac OS X同理，用各自的浏览器打开 `http://192.168.2.1`
 
     ![](img/login.png)
 
