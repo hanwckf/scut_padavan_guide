@@ -173,7 +173,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
     ![](img/scut.png)
 
 15. 查看scutclient中的日志，没有出现ERROR之类的输出说明认证成功，此时电脑应该可以正常上网了。如果认证失败，请详细检查**第13-14步**里填写的参数是否有误。  
-如果出现 `No response` 的错误日志，请检查网线以及墙壁上的网线插孔是否接触良好。
+如果出现 `No response` 的错误日志，请检查网线以及墙壁上的网线插孔是否接触良好，然后点一下`重拨`
 
     ![](img/success.png)
 
