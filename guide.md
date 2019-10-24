@@ -149,7 +149,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 
     ![](img/adapter.png)
 
-11. 点击`详细信息`，检查IP地址是否为192.168.2.X，下图为有线网卡的示例，无线网卡同理
+11. 点击`详细信息`，检查IP地址是否为`192.168.2.X`，下图为有线网卡的示例，无线网卡同理
 
     ![](img/ipstatus.png)
 
