@@ -145,7 +145,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 
 <div STYLE="page-break-after: always;"></div>
 
-10. 查看有线或无线网卡的状态信息，确保电脑已经获取到了192.168.2.X的IP地址。找到你的有线网卡或无线网卡并双击它。一般情况下有线网卡的名字是`以太网`，无线网卡的名字是`WLAN`
+10. 找到你的有线网卡或无线网卡并双击它。一般情况下有线网卡的名字是`以太网`，无线网卡的名字是`WLAN`
 
     ![](img/adapter.png)
 
