@@ -1,6 +1,6 @@
 # scut_padavan使用指南 <!-- omit in toc -->
 
-*最后更新日期：2019年10月12日*
+*最后更新日期：2019年10月26日*
 
 *本文档的部分内容仅保证在最后更新日期时有效*
 
@@ -145,11 +145,11 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 
 <div STYLE="page-break-after: always;"></div>
 
-10. 查看有线或无线网卡的状态信息，确保电脑已经获取到了192.168.2.X的IP地址。找到你的有线网卡或无线网卡并双击它。一般情况下有线网卡的名字是`以太网`，无线网卡的名字是`WLAN`
+10. 找到你的有线网卡或无线网卡并双击它。一般情况下有线网卡的名字是`以太网`，无线网卡的名字是`WLAN`
 
     ![](img/adapter.png)
 
-11. 点击`详细信息`，检查IP地址是否为192.168.2.X，下图为有线网卡的示例，无线网卡同理
+11. 点击`详细信息`，检查IP地址是否为`192.168.2.X`，下图为有线网卡的示例，无线网卡同理
 
     ![](img/ipstatus.png)
 
@@ -172,8 +172,10 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 
     ![](img/scut.png)
 
-15. 查看scutclient中的日志，没有出现ERROR之类的输出说明认证成功，此时电脑应该可以正常上网了。如果认证失败，请详细检查**第13-14步**里填写的参数是否有误。  
-如果出现 `No response` 的错误日志，请检查网线以及墙壁上的网线插孔是否接触良好，然后点一下`重拨`
+15. 查看scutclient的日志，没有`ERROR`之类的输出说明认证成功，此时应该可以上网了；如果认证失败，请仔细检查**第13-14步**中填写的参数；如果出现 `No response` 的错误日志，请按以下步骤排查：
+    - 确认网线是好的，并重新拔插路由器和墙壁上的网线端口，然后在路由器管理界面中点击`重连`
+    - 如果故障依旧，请尝试墙壁上的其它端口（如果有），然后在路由器管理界面中点击`重连`
+    - 如果墙壁上只有1个端口或更换端口后故障依旧，请断开路由器然后用电脑连上有线网口，使用学校的客户端进行登录。如果学校的客户端也无法正常使用，请致电网络中心(87110228)报修
 
     ![](img/success.png)
 
@@ -315,13 +317,13 @@ IPv6注意事项
   1. 对于使用IPv6的PT用户，请务必使用https tracker服务器，否则本科生夜间断网后无法连接tracker服务器
       ![](img/npupt.png)
   2. NAT6后的内网无法使用transmission，而utorrent, qbittorrent和deluge等客户端可以正常工作
-  3. 目前SCUT的校内IPv6不允许外部传入连接，因此无法从学校外部的IPv6网络连入学校内的IPv6设备
+  3. 目前SCUT的校内IPv6不允许外部传入连接，因此无法从学校以外的IPv6网络连入学校内部的IPv6设备
 
 <div STYLE="page-break-after: always;"></div>
 
 ## 本固件的其它内置功能
 
-- vlmcsd, 用于自动激活Windows10和Office(VOL版)系列全家桶
+- vlmcsd, 用于自动激活Windows 10和Office(VOL版)系列全家桶
 
 - 插件的使用说明请参考以下链接：
   - [https://www.jianshu.com/p/cb51fb0fb2ac](https://www.jianshu.com/p/cb51fb0fb2ac)
@@ -330,7 +332,7 @@ Padavan不能像OpenWrt一样随意安装软件，除非在可写的外置存储
 
 ## 如何在其它网络环境下使用本固件
 
-*其它网络环境指的是别的学校的校园网，或者自己家里，实验室等不需要进行scutclient认证的网络环境*
+*其它网络环境指的是别的学校的校园网，或者自己家里、实验室等不需要进行scutclient认证的网络环境*
 
 *本部分内容仅适用于scut_padavan固件*
 
