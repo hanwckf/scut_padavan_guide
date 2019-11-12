@@ -1,6 +1,6 @@
 # scut_padavan使用指南 <!-- omit in toc -->
 
-*最后更新日期：2019年10月26日*
+*最后更新日期：2019年11月13日*
 
 *本文档的部分内容仅保证在最后更新日期时有效*
 
@@ -245,8 +245,9 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
     ![](img/login.png)
 
 6. 在管理界面内，首先按下图配置mentohust：
-    
+
     ![](img/mentohust-1.png)
+    
     ![](img/mentohust-2.png)
 
 7. 应用设置后，手动刷新一下浏览器页面，然后查看网络地图，出现绿色的勾就说明认证成功了：
