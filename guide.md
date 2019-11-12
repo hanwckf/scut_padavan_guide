@@ -23,9 +23,9 @@
     - 默认SSID：`360P2_XXXX`和`360P2_5G_XXXX`，默认密码都是`1234567890`
   - 其它机器的默认SSID为：`<机器型号>_<MAC后4位>`以及`<机器型号>_5G_<MAC后4位>`，默认密码都是`1234567890`
 - 我更换了宿舍或者重置了校园网的账号密码，需要在路由器上怎么做？
-  - 重新做一次快速配置即可，见[第2节](#快速配置指南)
+  - 重新做一次快速配置即可，见[第2节](#快速配置指南)，如果是mentohust，见[第4节](#mentohust-scau快速配置指南)
 - 如何重新设置WiFi密码？
-  - 见[第2节](#快速配置指南)末尾
+  - 见[第2节](#快速配置指南)的末尾
 - 如何查看scutclient的日志？
   - 见[第3节](#简单故障排查)的内容
 - 如何重启路由器？
@@ -38,18 +38,19 @@
 
 ## 目录 <!-- omit in toc --> 
 1. [介绍](#介绍)
-2. [快速配置指南](#快速配置指南)
+2. [SCUT快速配置指南](#scut快速配置指南)
 3. [简单故障排查](#简单故障排查)
-4. [如何将路由器恢复出厂设置](#如何将路由器恢复出厂设置)
-5. [IPv6](#ipv6)
-6. [本固件的其它内置功能](#本固件的其它内置功能)
-7. [如何在其它网络环境下使用本固件](#如何在其它网络环境下使用本固件)
-8. [如何重刷或者刷入其它固件](#如何重刷或者刷入其它固件)
-9. [如何获取固件更新](#如何获取固件更新)
-10. [如何备份EEPROM, EEPROM丢失了怎么办](#如何备份eeprom-eeprom丢失了怎么办)
-11. [如何进入路由器的控制台终端](#如何进入路由器的控制台终端)
-12. [如何选择其它路由器](#如何选择其它路由器)
-13. [其它关于校园网的信息](#其它关于校园网的信息)
+4. [mentohust-scau快速配置指南](#mentohust-scau快速配置指南)
+5. [如何将路由器恢复出厂设置](#如何将路由器恢复出厂设置)
+6. [IPv6](#ipv6)
+7. [本固件的其它内置功能](#本固件的其它内置功能)
+8. [如何在其它网络环境下使用本固件](#如何在其它网络环境下使用本固件)
+9. [如何重刷或者刷入其它固件](#如何重刷或者刷入其它固件)
+10. [如何获取固件更新](#如何获取固件更新)
+11. [如何备份EEPROM, EEPROM丢失了怎么办](#如何备份eeprom-eeprom丢失了怎么办)
+12. [如何进入路由器的控制台终端](#如何进入路由器的控制台终端)
+13. [如何选择其它路由器](#如何选择其它路由器)
+14. [其它关于校园网的信息](#其它关于校园网的信息)
 
 <div STYLE="page-break-after: always;"></div>
 
@@ -92,7 +93,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 
 <div STYLE="page-break-after: always;"></div>
 
-## 快速配置指南
+## SCUT快速配置指南
 
 对于已经刷好了scut_padavan固件的路由器，普通用户仅需执行此快速配置即可。  
 一般情况下只需5分钟即可完成快速配置。
@@ -188,7 +189,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 
     ![](img/2.4g.png)
 
-17. 快速配置完成，请在按下图所示在路由器管理界面中执行重启命令：  
+17. 快速配置完成，请按下图所示在路由器管理界面中执行重启命令：  
 一切正常的话，你就可以卸载掉学校官方的上网客户端了
 
     ![](img/reboot.png)
@@ -218,6 +219,52 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 - 路由器的有线网络可以正常使用，但WiFi无法使用
   - 首先尝试将路由器硬重启：拔掉电源再插回去
   - 如果故障依旧，请将路由器[恢复出厂设置](#如何将路由器恢复出厂设置)，恢复之后立即检查WiFi是否可以被搜索到，如果不能，可能是路由器硬件损坏
+
+<div STYLE="page-break-after: always;"></div>
+
+## mentohust-scau快速配置指南
+
+    准备工作：
+      - 正常工作的网线，最好有2条，1条也可以
+
+1. 将路由器接好电源，通电
+
+2. **如果你拿到的路由器是别人用过的，请通电3分钟后长按RESET键至少15秒，让路由器自动重启，这样做的目的是恢复出厂设置。如果你的机器没有RESET键或者固件未适配，请看[这里](#如何将路由器恢复出厂设置)的方法2或方法3恢复出厂设置**
+
+3. 将墙壁上的网线插孔与路由器的WAN口连接起来，**切勿插错网口！**  
+     - 对于极路由E30，WAN口是**蓝色**的网口
+
+4. 把电脑与路由器任意一个LAN口连接起来，**同时暂时关闭电脑的WiFi**
+   - 对于极路由E30，LAN口是四个**黄色**的网口之一
+   - 如果你的电脑不带有线网卡或者你只有一根网线，可以使用WiFi连接路由器。路由器启动完成之后会出现两个热点，WiFi名称默认是`<路由器型号>_XXXX`和`<路由器型号>_5G_XXXX`，WiFi默认密码都是`1234567890`  
+   - **如果你只有手机或平板，请使用WiFi连接路由器**
+
+5. 使用有线或WiFi连接上路由器后，打开浏览器，在地址栏输入`192.168.2.1`，按回车，弹出认证界面，输入用户名`admin`和默认密码`admin`登入管理界面。  
+手机、平板与Mac OS X同理，用各自的浏览器打开 `http://192.168.2.1`
+    
+    ![](img/login.png)
+
+6. 在管理界面内，首先按下图配置mentohust：
+    
+    ![](img/mentohust-1.png)
+    ![](img/mentohust-2.png)
+
+7. 应用设置后，手动刷新一下浏览器页面，然后查看网络地图，出现绿色的勾就说明认证成功了：
+
+    ![](img/dhcp-status.png)
+
+<div STYLE="page-break-after: always;"></div>
+
+8. 最后配置2.4GHz/5GHz WiFi的SSID和密码，密码最短要有8位  
+**对于大多数设备，建议使用5GHz WiFi**
+
+    ![](img/5g.png)
+
+    ![](img/2.4g.png)
+
+9. mentohust快速配置完成，请按下图在路由器管理界面中执行重启命令：  
+
+    ![](img/reboot.png)
 
 <div STYLE="page-break-after: always;"></div>
 
@@ -354,7 +401,7 @@ Padavan不能像OpenWrt一样随意安装软件，除非在可写的外置存储
 
 对于动态IP地址(DHCP)，无需进行其它配置；对于静态IP地址，需要设置正确的IP地址、子网掩码、网关以及DNS服务器；对于PPPoE，需要设置PPPoE的用户名和密码。
 
-对于其它学校的校园网，一般情况下都需要进行认证，scut_padavan已经内置了mentohust, minieap, njit-client和dogcom这四种常见的校园网通用认证插件，但是都没有webui界面，只能在命令行里操作，具体使用方法请自行研究。
+对于其它学校的校园网，一般情况下都需要进行认证，scut_padavan已经内置了[mentohust](https://github.com/hanwckf/mentohust-1), [minieap](https://github.com/hanwckf/minieap), [njit-client](https://github.com/hanwckf/njit8021xclient)和[dogcom](https://github.com/hanwckf/dogcom)这四种常见的校园网通用认证插件，但是除mentohust以外都没有webui，只能在命令行里操作，具体使用方法请自行研究。
 
 scut_padavan还内置了支持https的curl，可以进行portal认证。
 
@@ -475,7 +522,7 @@ scut_padavan默认开启ssh并关闭telnet，默认的用户名和密码都是`a
 
 在校园网内使用路由器，必须由路由器代替学校的上网客户端进行认证，还要骗过上级网关的检测机制（如HTTP UA检查等。SCUT不存在这种检测，某些学校有），**所以路由器的必要条件是能刷够入原厂固件以外的第三方固件，例如OpenWrt或者本项目的Padavan，绝大多数普通路由器都不能满足这一条件。**
 
-想要使用原汁原味的OpenWrt固件，建议选择高通平台的路由器，因为高通的开源无线驱动ath9k/ath10k工作表现良好。
+想要使用原版OpenWrt，建议选择高通平台的路由器，因为其开源无线驱动ath9k/ath10k表现良好。
 
 **不推荐购买AR7241+AR9287,单AR9331/9341这些过时的单频路由器（如tp-link 841n,941n等被某些校园网路由器奸商卖到上百元高价的路由器），推荐从QCA9558/QCA9563+QCA988X起步，也可以考虑IPQ401X系列，但是价格较贵。**
 
@@ -493,7 +540,7 @@ scut_padavan默认开启ssh并关闭telnet，默认的用户名和密码都是`a
 
 想要使用Padavan固件，只能选择MT7620/7621/7628的路由器，并且无线芯片必须是MT7610/7612/7603/7615之一，否则没有无线驱动支持。
 
-scut_padavan在源码中集成了scutclient，并且在[Releases](https://github.com/hanwckf/rt-n56u/releases)中发布的大部分机型已将scutclient编译进去，绝大多数SCUT的同学可免于折腾直接使用。
+scut_padavan在源码中集成了scutclient，并且在[Releases](https://github.com/hanwckf/rt-n56u/releases)中发布的大部分机型已将scutclient编译进去，绝大多数SCUT的同学可免于折腾直接使用。同时scut_padavan还集成了[HustLion/mentohust](https://github.com/hanwckf/mentohust-1)，可适用于SCAU的校园网认证。
 
 **不推荐购买过时的单7620/7628的单频路由器（如极路由1S等），至少应选择支持5GHz WiFi的路由。**
 
