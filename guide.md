@@ -242,7 +242,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
     
     ![](img/login.png)
 
-6. 在管理界面内，首先按下图配置mentohust：
+6. 在管理界面内，点击左侧菜单下的`mentohust`，按下图配置，填写完成之后点击**应用设置**
 
     ![](img/mentohust-1.png)
     
