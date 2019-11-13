@@ -48,7 +48,7 @@
 11. [如何备份EEPROM, EEPROM丢失了怎么办](#如何备份eeprom-eeprom丢失了怎么办)
 12. [如何进入路由器的控制台终端](#如何进入路由器的控制台终端)
 13. [如何选择其它路由器](#如何选择其它路由器)
-14. [其它关于校园网的信息](#其它关于校园网的信息)
+14. [其它关于SCUT校园网的信息](#其它关于scut校园网的信息)
 
 <div STYLE="page-break-after: always;"></div>
 
@@ -571,5 +571,5 @@ Marvell方案的路由器比较冷门且价格较高，但是对OpenWrt支持良
 
 <div STYLE="page-break-after: always;"></div>
 
-## 其它关于校园网的信息
+## 其它关于SCUT校园网的信息
 请参考：[https://www.jianshu.com/p/94e17b6fa256](https://www.jianshu.com/p/94e17b6fa256)
