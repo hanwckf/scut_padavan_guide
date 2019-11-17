@@ -250,6 +250,8 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
     
     ![](img/mentohust-2.png)
 
+<div STYLE="page-break-after: always;"></div>
+
 7. 应用设置后，手动刷新一下浏览器页面，然后查看网络地图，出现绿色的勾就说明认证成功了：
 
     ![](img/dhcp-status.png)
