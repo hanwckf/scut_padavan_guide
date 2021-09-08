@@ -4,7 +4,7 @@
 
 *本文档的部分内容仅保证在最后更新日期时有效*
 
-*本文档的最新版本可在[这里](https://github.com/hanwckf/scut_padavan_guide/blob/master/guide.md)获得*
+*本文档的最新版本可在[这里](https://github.com/hanwckf/scut_padavan_guide/blob/master/guide.md)和[这里](https://gitee.com/hanwckf/scut_padavan_guide/blob/master/guide.md)获得*
 
 ***
 本作品采用[知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-sa/4.0/)进行许可。
@@ -69,7 +69,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 
 目前scut_padavan中使用的scutclient源码版本为v3.1.2；scut_padavan有监测脚本处理认证失败的情况，无需任何额外配置，客户端意外掉线后会自动重拨并记录到系统日志中。
 
-本文档适用于scut_padavan支持的所有路由器，推荐的路由器型号请参考本文档第13节。scut_padavan支持的所有机型可在[此处](https://github.com/hanwckf/rt-n56u/blob/master/README.md)看到。
+本文档适用于scut_padavan支持的所有路由器，推荐的路由器型号请参考本文档[第13节](#如何选择其它路由器)。scut_padavan支持的所有机型可在[此处](https://github.com/hanwckf/rt-n56u/blob/master/README.md)看到。
 
 **新手注意：不要购买没有刷好breed的路由器！因为大部分路由器从原厂固件刷入breed操作繁琐，新手操作很可能会导致路由器变砖，必须让卖家帮忙刷好breed才可购买，然后再按照本文档说明进行[刷机](#如何重刷或者刷入其它固件)配置，或者可以让热心的卖家帮忙刷好scut_padavan，只需将对应机器的固件发给卖家即可，想要获取最新固件请看[这里](#如何获取固件更新)的内容。**
 
@@ -516,8 +516,6 @@ scut_padavan默认开启ssh并关闭telnet，默认的用户名和密码都是`a
 想要使用原版OpenWrt，建议选择高通平台的路由器，因为其开源无线驱动ath9k/ath10k表现良好。
 
 **不推荐购买AR7241+AR9287,单AR9331/9341这些过时的单频路由器（如tp-link 841n,941n等被某些校园网路由器奸商卖到上百元高价的路由器）。**
-
-使用ath10k开源驱动，路由器最好要有128M或以上的RAM；如果使用闭源的qcawifi驱动，则64M内存一般足够（如斐讯K2T等64M内存的路由器）。
 
 关于在OpenWrt使用scutclient进行校园网认证，请看[此处](https://github.com/scutclient/scutclient)，你也可以加入[华工路由器群](https://github.com/scutclient/scutclient#contact-us)了解更多信息，**OpenWrt不在本文档的支持范围之内。**
 
