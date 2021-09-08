@@ -1,10 +1,10 @@
 # scut_padavan使用指南 <!-- omit in toc -->
 
-*最后更新日期：2019年11月18日*
+*最后更新日期：2021年9月8日*
 
 *本文档的部分内容仅保证在最后更新日期时有效*
 
-*本文档的最新版本可在[这里](https://github.com/hanwckf/scut_padavan_guide/blob/master/guide.md)和[这里](https://gitee.com/hanwckf/scut_padavan_guide/blob/master/guide.md)获得*
+*本文档的最新版本可在[这里](https://github.com/hanwckf/scut_padavan_guide/blob/master/guide.md)获得*
 
 ***
 本作品采用[知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-sa/4.0/)进行许可。
@@ -17,11 +17,8 @@
 - 本固件**管理界面**默认的登录用户名和密码是？
   - 默认用户名：`admin`，默认密码：`admin`，ssh/telnet用户名密码同上
 - 本固件的**WiFi**默认名称和密码是？
-  - 对于极路由E30/HC5861B
-    - 默认SSID：`HC5861B_XXXX`和`HC5861B_5G_XXXX`，默认密码都是`1234567890`
-  - 对于360磊科P2/360P2
-    - 默认SSID：`360P2_XXXX`和`360P2_5G_XXXX`，默认密码都是`1234567890`
-  - 其它机器的默认SSID为：`<机器型号>_<MAC后4位>`以及`<机器型号>_5G_<MAC后4位>`，默认密码都是`1234567890`
+  - 默认SSID为：`<机器型号>_<MAC后4位>`以及`<机器型号>_5G_<MAC后4位>`，例如`HC5861B_5G_XXXX`，`360P2_5G_XXXX`，`RM2100_5G_XXXX`，`JCG-Q20_5G_XXXX`等等。
+  - 默认密码都是`1234567890`
 - 我更换了宿舍或者重置了校园网的账号密码，需要在路由器上怎么做？
   - 重新做一次快速配置即可，见[第2节](#快速配置指南)，如果是mentohust，见[第4节](#mentohust-scau快速配置指南)
 - 如何重新设置WiFi密码？
@@ -61,29 +58,20 @@
 由于MTK系列的无线方案在开源mt76驱动下的性能和稳定性不及原厂驱动，因此很多MTK路由器玩家会选择PandoraBox(PanguBox),高恪或Padavan等使用MTK私有无线驱动的固件。
 
 *注1：高通平台的开源无线驱动ath10k/ath9k支持良好，如果需要OpenWrt的话推荐选择高通平台的路由器*  
-*注2：PandoraBox(PanguBox)以及高恪同样使用mtk的私有无线驱动，但固件本身不开源*
+*注2：PandoraBox(PanguBox)等固件同样使用mtk的私有无线驱动，但固件本身不开源*
 
-scut_padavan最新的源代码在以下两个仓库里分发：
+scut_padavan最新的源代码在以下仓库里分发：
 - [https://github.com/hanwckf/rt-n56u](https://github.com/hanwckf/rt-n56u)
-- [https://gitee.com/hanwckf/rt-n56u](https://gitee.com/hanwckf/rt-n56u)
 
 scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scutclient)的一个Fork，其源码可以在以下仓库里找到：
 
 - [https://github.com/hanwckf/scutclient](https://github.com/hanwckf/scutclient)
 
-目前scut_padavan中使用的scutclient源码版本为v3.0或v3.1.2；scut_padavan有监测脚本处理认证失败的情况，无需任何额外配置，客户端意外掉线后会自动重拨并记录到系统日志中。
+目前scut_padavan中使用的scutclient源码版本为v3.1.2；scut_padavan有监测脚本处理认证失败的情况，无需任何额外配置，客户端意外掉线后会自动重拨并记录到系统日志中。
 
-极路由E30/HC5861B(简称极路由E30)与360磊科P2(简称360P2)是本项目支持的机型，目前本文档使用的参考机型为此两款路由，如果你使用的是scut_padavan项目支持的其它路由器，也可以参考本文档进行配置。
+本文档适用于scut_padavan支持的所有路由器，推荐的路由器型号请参考本文档第13节。scut_padavan支持的所有机型可在[此处](https://github.com/hanwckf/rt-n56u/blob/master/README.md)看到。
 
-极路由E30/360P2的硬件配置如下：
-- CPU/2.4GHz WiFi: MT7628A (iPA+iLNA)
-- RAM: 128M
-- FLASH: 16M
-- 5GHz WiFi: MT7612E (E30: iPA+iLNA; 360P2: ePA+eLNA)
-
-截至最后更新日期，这些路由器可以在二手市场以较低的价格（40-70元）购买到，是支持5GHz WiFi的低价路由器，其它同类机器还有小米路由Mini和斐讯K2等（40-80元）。你也可以选择scut_padavan项目支持的其它路由器，如DIR-882/DIR-878、K2P等MT7615+MT7621的路由器（200元以上，性能强大），或者是NEWIFI3等MT7621矿渣路由器（100元全新，WiFi信号可能很差），只要刷入scut_padavan即可按本文档的后续内容配置。scut_padavan支持的机型可在[此处](https://github.com/hanwckf/rt-n56u/blob/master/README.md)看到。
-
-**新手注意：千万不要购买没有刷好breed的路由器！因为大部分路由器从原厂固件刷入breed操作繁琐，新手操作很可能会导致路由器变砖，必须让卖家帮忙刷好breed才可购买，然后再按照本文档说明进行[刷机](#如何重刷或者刷入其它固件)配置，或者可以一步到位让热心的卖家帮忙刷好scut_padavan，只需将对应机器的固件发给卖家即可，想要获取最新固件请看[这里](#如何获取固件更新)的内容。**
+**新手注意：不要购买没有刷好breed的路由器！因为大部分路由器从原厂固件刷入breed操作繁琐，新手操作很可能会导致路由器变砖，必须让卖家帮忙刷好breed才可购买，然后再按照本文档说明进行[刷机](#如何重刷或者刷入其它固件)配置，或者可以让热心的卖家帮忙刷好scut_padavan，只需将对应机器的固件发给卖家即可，想要获取最新固件请看[这里](#如何获取固件更新)的内容。**
 
 **一些出售所谓校园网专用路由器的商家，把成本更低的机器(无5GHz WiFi的单MT7620/7628, AR9341或AR7241+AR9287)卖到上百元的高价，而读完这篇文档后，你完全可以自主选择性价比更高的路由器，同时也具备了一个玩家所需要的基础知识。**
 
@@ -110,10 +98,10 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 3. **如果你拿到的路由器是别人用过的，请通电3分钟后长按RESET键至少15秒，让路由器自动重启，这样做的目的是恢复出厂设置。如果你的机器没有RESET键或者固件未适配，请看[这里](#如何将路由器恢复出厂设置)的方法2或方法3恢复出厂设置**
 
 4. 将墙壁上的网线插孔与路由器的WAN口连接起来，切勿插错网口！  
-     - 对于极路由E30，WAN口是**蓝色**的网口；对于360P2，WAN口是**黄色**的网口
+     - 对于极路由E30，WAN口是**蓝色**的网口；对于360P2，WAN口是**黄色**的网口；对于小米CR660x、红米AC2100、JCG-Q10PRO以及JCG-Q20，WAN口上有字迹标注
 
 5. 把电脑与路由器任意一个LAN口连接起来，**同时暂时关闭电脑的WiFi**
-   - 对于极路由E30，LAN口是**黄色**的网口之一；对于360P2，LAN口是**灰色**的网口之一
+   - 对于极路由E30，LAN口是**黄色**的网口之一；对于360P2，LAN口是**灰色**的网口之一； 对于小米CR660x、红米AC2100、JCG-Q10PRO以及JCG-Q20，LAN口上有字迹标注
    - 如果你的电脑不带有线网卡或者你只有一根网线，可以使用WiFi连接本路由器。在路由器启动完成之后会出现两个热点，WiFi名称默认是`<路由器型号>_XXXX`和`<路由器型号>_5G_XXXX`，WiFi默认密码都是`1234567890`  
    - **如果你只有手机、平板或MacBook，可以使用WiFi连接路由器，然后跳到第12步**   
    - **新手注意：如果电脑以前是直连有线校园网的话必须经过第6-9步的操作才能使用路由器有线上网（因为直连校园网需要将电脑的有线网卡配置为静态地址，而路由器要求电脑有线网卡配置为自动获取地址），除非你的电脑只用路由器的WiFi（因为WiFi默认就是自动获取地址，一般无需配置）**
@@ -169,7 +157,8 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 
 <div STYLE="page-break-after: always;"></div>
 
-14. 然后点击左侧菜单下的`scutclient`，按下图配置，填写完成之后点击**应用设置**
+14. 然后点击左侧菜单下的`scutclient`，按下图配置，填写完成之后点击**应用设置**。  
+**特别注意：对于广州国际校区的校园网，如果设置好以后无法上网（具体表现为日志里看到8021x认证成功但UDP心跳包无响应），那么请修改此处的`认证IP`为`192.168.53.229`**
 
     ![](img/scut.png)
 
@@ -232,10 +221,10 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 2. **如果你拿到的路由器是别人用过的，请通电3分钟后长按RESET键至少15秒，让路由器自动重启，这样做的目的是恢复出厂设置。如果你的机器没有RESET键或者固件未适配，请看[这里](#如何将路由器恢复出厂设置)的方法2或方法3恢复出厂设置**
 
 3. 将墙壁上的网线插孔与路由器的WAN口连接起来，**切勿插错网口！**  
-     - 对于极路由E30，WAN口是**蓝色**的网口；对于360P2，WAN口是**黄色**的网口
+     - 对于极路由E30，WAN口是**蓝色**的网口；对于360P2，WAN口是**黄色**的网口；对于红米AC2100，JCG-Q10PRO以及JCG-Q20，WAN口上有字迹标注
 
 4. 把电脑与路由器任意一个LAN口连接起来，**同时暂时关闭电脑的WiFi**
-   - 对于极路由E30，LAN口是4个**黄色**的网口之一；对于360P2，LAN口是4个**灰色**的网口之一
+   - 对于极路由E30，LAN口是4个**黄色**的网口之一；对于360P2，LAN口是4个**灰色**的网口之一；对于红米AC2100，JCG-Q10PRO以及JCG-Q20，LAN口上有字迹标注
    - 如果你的电脑不带有线网卡或者你只有一根网线，可以使用WiFi连接路由器。路由器启动完成之后会出现两个热点，WiFi名称默认是`<路由器型号>_XXXX`和`<路由器型号>_5G_XXXX`，WiFi默认密码都是`1234567890`  
    - **如果你只有手机或平板，请使用WiFi连接路由器**
 
@@ -274,8 +263,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
 ## 如何将路由器恢复出厂设置
 
 - 方法1：
-  - 在正常开机状态下长按RESET键至少15秒直到路由器自动重启，推荐采用此方法
-    - 对于极路由E30，RESET键在机器的底部；对于360P2，RESET在电源口旁边，需要牙签按压
+  - 在正常开机状态下长按RESET键至少10秒直到路由器自动重启，推荐采用此方法
 
 - 方法2：
   - 在路由器管理界面里恢复出厂设置，操作顺序见下图：
@@ -448,14 +436,14 @@ scut_padavan还内置了支持https的curl，可以进行portal认证。
 scut_padavan固件完全开源，有以下三种方式获取固件：
   
 - 从[Github Releases](https://github.com/hanwckf/rt-n56u/releases)下载不定期发布的固件
-- 从[此链接](https://www.jianshu.com/p/d76a63a12eae)获得不定期更新的固件和更新日志，此处的更新频率高于Github Releases
+- 从[此链接](https://wwa.lanzoui.com/b0bqswffi)获得不定期更新的固件和更新日志，此处的固件仅包含校园网认证插件，更新频率高于Github Releases
 - 从源代码构建最新固件，请参考[README.md](https://github.com/hanwckf/rt-n56u/blob/master/README.md#编译说明)的编译说明
 
 <div STYLE="page-break-after: always;"></div>
 
 ## 如何备份EEPROM, EEPROM丢失了怎么办
 
-在MTK的无线方案中，EEPROM指的是保存有MAC地址和无线校准信息的一段特殊数据，类似于高通平台的ART。每台机器的EEPROM都不相同。正常操作不会导致EEPROM被擦除，而操作不当可能导致EEPROM丢失，此时MAC地址和WiFi信号都不正常。
+在MTK芯片的无线路由器中，EEPROM指的是保存有MAC地址和无线校准信息的一段特殊数据，类似于高通平台的ART。每台机器的EEPROM都不相同。正常操作不会导致EEPROM被擦除，而操作不当可能导致EEPROM丢失，此时MAC地址和WiFi信号都不正常。
 
 如果EEPROM丢失，必须重新刷入正确的EEPROM，最好在刷机前备份好自己的EEPROM以防万一。
 
@@ -527,41 +515,33 @@ scut_padavan默认开启ssh并关闭telnet，默认的用户名和密码都是`a
 
 想要使用原版OpenWrt，建议选择高通平台的路由器，因为其开源无线驱动ath9k/ath10k表现良好。
 
-**不推荐购买AR7241+AR9287,单AR9331/9341这些过时的单频路由器（如tp-link 841n,941n等被某些校园网路由器奸商卖到上百元高价的路由器），推荐从QCA9558/QCA9563+QCA988X起步，也可以考虑IPQ401X系列，但是价格较贵。**
+**不推荐购买AR7241+AR9287,单AR9331/9341这些过时的单频路由器（如tp-link 841n,941n等被某些校园网路由器奸商卖到上百元高价的路由器）。**
 
 使用ath10k开源驱动，路由器最好要有128M或以上的RAM；如果使用闭源的qcawifi驱动，则64M内存一般足够（如斐讯K2T等64M内存的路由器）。
 
 关于在OpenWrt使用scutclient进行校园网认证，请看[此处](https://github.com/scutclient/scutclient)，你也可以加入[华工路由器群](https://github.com/scutclient/scutclient#contact-us)了解更多信息，**OpenWrt不在本文档的支持范围之内。**
 
-截至最后更新日期，推荐的高通方案路由器有：
-- SBR-AC1750 (QCA9558+QCA9880)
-- 华硕AC58U (IPQ401x)
-- 华硕ACRH17 (IPQ401x+QCA9984)
-- ~~DW33D~~ (QCA9558+QCA9880，硬件设计缺陷，随时有变砖风险，详情请看[此处](https://www.right.com.cn/forum/thread-361850-1-1.html))
-- 斐讯K2T (QCA9563+QCA9886，只有64M内存，最好硬改到128M)
-- 360 C301 (AR9344+QCA9882)
+想要使用Padavan固件，只能选择MT7620/7621/7628的路由器，并且无线芯片必须是MT7610/7612/7603/7615/7915之一，否则没有无线驱动支持。
 
-想要使用Padavan固件，只能选择MT7620/7621/7628的路由器，并且无线芯片必须是MT7610/7612/7603/7615之一，否则没有无线驱动支持。
+scut_padavan在源码中集成了scutclient，不仅适用于SCUT的同学使用，同时还集成了[HustLion/mentohust](https://github.com/hanwckf/mentohust-1)，可适用于SCAU的校园网认证。
 
-scut_padavan在源码中集成了scutclient，并且在[Releases](https://github.com/hanwckf/rt-n56u/releases)中发布的大部分机型已将scutclient编译进去，绝大多数SCUT的同学可免于折腾直接使用。同时scut_padavan还集成了[HustLion/mentohust](https://github.com/hanwckf/mentohust-1)，可适用于SCAU的校园网认证。
+**不推荐购买过时的7620/7628单频路由器（如极路由1S等），至少应选择支持5GHz WiFi的路由。**
 
-**不推荐购买过时的单7620/7628的单频路由器（如极路由1S等），至少应选择支持5GHz WiFi的路由。**
+截至最后更新日期，推荐的MTK无线路由器如下表所示
 
-截至最后更新日期，推荐的MTK方案路由器有：
-- DIR-882/DIR-878 (MT7621+MT7615+MT7615)
-- 斐讯K2P (MT7621+MT7615D，**一代神器**，已经炒到200元，以前只要100元)
-- NEWIFI3/歌华链 (MT7621+MT7603+MT7612，WiFi可能很差，存世量大，玩家多，不折腾的同学别买)
-- 斐讯K2 (MT7620+MT7612，上代神器)
-- 360 P2 (MT7628+MT7612)
-- 极路由E30 (HC5861B) (MT7628+MT7612，可能只有通过TTL才能刷入breed)
+| 机型 | 有线 | 5G无线 | 2.4G无线 | 硬件 | 备注 |
+| ---- | ---- | ------ | -------- | ---- | ---- |
+| JCG-Q10 PRO/JCG-Q20 | 千兆 | AX1200M | AX574M | MT7621+MT7915D | WiFi6千兆路由器，刷机极其简单，售价较低，性价比高，**推荐使用** |
+| 小米CR6606/CR6608/CR6609 | 千兆 | AX1200M | AX574M | MT7621+MT7915D | WiFi6千兆路由器，与上款JCG配置相同，售价较高，刷机步骤复杂 |
+| 红米AC2100 | 千兆 | AC1733M | N300M | MT7621+MT7615+MT7603 | WiFi5千兆路由器，5G强，2.4G差，玩家多，可以免拆刷机，**推荐使用** |
+| 360 P2 | 百兆 | AC866M | N300M | MT7628+MT7612 | 售价低（50以内），可以免拆刷机，**推荐使用** |
+| 极路由E30 (HC5861B) | 百兆 | AC866M | N300M | MT7628+MT7612 | 只有通过TTL才能刷入breed，不推荐自己购买使用 |
+| 斐讯K2P | 千兆 | AC866M | N300M | MT7621+MT7615D | WiFi5千兆路由器，上代神器，玩家多 |
+| NEWIFI3 | 千兆 | AC866M | N300M | MT7621+MT7612+MT7603 | WiFi可能很差，玩家多，不折腾的同学别买 |
+| 斐讯K2 | 百兆 | AC866M |N300M | MT7620+MT7612 | 上上代神器，玩家多 |
 
-MTK系列的路由器还可以刷同样采用私有无线驱动的PandoraBox (PanguBox)或高恪固件，这两个固件都不开放源代码，但是PandoraBox提供SDK，可以自己构建ipk包（前提是你没碰到它的bug）。同时PandoraBox还支持ar71xx/ipq401x/ipq806x等高通方案的路由器，里面用的是闭源的qcawifi无线驱动。
 
-MT7620/MT7628片内集成百兆交换机、单核580MHz MIPS 24kc处理器和2x2 2.4GHz WiFi模块，两者的区别在于MT7628去掉了MT7620的HWNAT，但增强了2.4GHz WiFi的抗干扰能力。  
-MT7621片内集成千兆交换机以及双核四线程的880MHz MIPS 1004kc处理器，没有无线模块，因此MT7621方案的路由器需要外挂一个2.4GHz的无线芯片，一般会选用MT7603，有些高端产品会选用MT7615。显然MT7621的处理器远强于MT7620/7628，如果你在宿舍需要挂pt的话，推荐选择MT7621，或者考虑下面的软路由方案。  
-MT7615是MTK新一代的无线芯片，性能远超MT7612和MT7603，价格也贵一些。
-
-MTK的无线方案在原版OpenWrt下采用mt76开源无线驱动，其性能和稳定性都弱于原厂私有驱动，当然随着代码的不断完善，相信mt76开源驱动的bug会越来越少。
+MTK系列的路由器还可以刷同样采用私有无线驱动的PanguBox(PandoraBox)、高恪或者集客固件，这些固件都不开放源代码。同时PanguBox还支持ar71xx/ipq401x/ipq806x等高通方案的路由器，使用了闭源的qcawifi无线驱动。
 
 Marvell方案的路由器比较冷门且价格较高，但是对OpenWrt支持良好，例如思科WRT1900ACS系列。
 
