@@ -167,7 +167,7 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
     - 如果故障依旧，请尝试墙壁上的其它端口（如果有），然后在路由器管理界面中点击`重连`
     - 如果墙壁上只有1个端口或更换端口后故障依旧，请断开路由器然后用电脑连上有线网口，使用学校的客户端进行登录。如果学校的客户端也无法正常使用，请致电网络中心(87110228)报修
 
-    ![](img/success.png)
+      ![](img/success.png)
 
 <div STYLE="page-break-after: always;"></div>
 
@@ -227,6 +227,8 @@ scut_padavan集成的scutclient为[原项目](https://github.com/scutclient/scut
    - 对于极路由E30，LAN口是**黄色**的网口之一；对于360P2，LAN口是**灰色**的网口之一； 对于小米CR660x、红米AC2100以及JCG-Q10PRO/JCG-Q20，LAN口上有字迹标注
    - 如果你的电脑不带有线网卡或者你只有一根网线，可以使用WiFi连接路由器。路由器启动完成之后会出现两个热点，WiFi名称默认是`<路由器型号>_XXXX`和`<路由器型号>_5G_XXXX`，WiFi默认密码都是`1234567890`  
    - **如果你只有手机或平板，请使用WiFi连接路由器**
+
+<div STYLE="page-break-after: always;"></div>
 
 5. 使用有线或WiFi连接上路由器后，打开浏览器，在地址栏输入`192.168.2.1`，按回车，弹出认证界面，输入用户名`admin`和默认密码`admin`登入管理界面。  
 手机、平板与Mac OS X同理，用各自的浏览器打开 `http://192.168.2.1`
@@ -543,10 +545,8 @@ MTK系列的路由器还可以刷同样采用私有无线驱动的PanguBox(Pando
 
 Marvell方案的路由器比较冷门且价格较高，但是对OpenWrt支持良好，例如思科WRT1900ACS系列。
 
-如果你有一块SBC（树莓派及其它各种国产pi）或ARM/ARM64盒子（斐讯N1,贝壳云,猫盘等等,常见的方案有s905/s912,RK3328/RK3368等等），可以用它作为OpenWrt软路由，再搭配一个MT7620/MT7621路由器做为VLAN交换机，此部分的参考资料会尽快更新上来。  
-![](img/vlan.png)
+不推荐任何螃蟹方案的路由，因为几乎没有开源支持。
 
-不推荐任何螃蟹方案的路由，因为几乎没有开源支持。  
 **至于垃圾bcm：**
 
 ![bcm](img/bcm.png)
